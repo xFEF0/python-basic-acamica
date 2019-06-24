@@ -13,14 +13,14 @@ loan_at_end = loan_amount
 
 output_file = open("loan_details.txt", "w")
 
-print("{:>5s} - {:>10s} - {:>10s} - {:>10s}".format("Year", "Loan start", "Interest", "Loan end"))
+print("{:>5s} - {:>10s} - {:>10s} - {:>10s}".format("Year", "Loan start", "Interest", "Loan end"), file=output_file)
 
 for year in range(time_in_years):
     loan_at_start = loan_at_end
     interest = loan_at_end * (rate / 100)
     loan_at_end += interest
-    print("{:>5d} - {:>10.2f} - {:>10.2f} - {:>10.2f}".format(year, loan_at_start, interest, loan_at_end), file = output_file)
+    print("{:>5d} - {:>10.2f} - {:>10.2f} - {:>10.2f}".format(year, loan_at_start, interest, loan_at_end), file=output_file)
 
-print("\nIf you borrowed at the bank ${:<10.2f}\nyou'd have to pay ${:10.2f}".format(loan_amount, loan_at_end), file = output_file)
+print("\nIf you borrowed at the bank ${:<10.2f}\nyou'd have to pay ${:10.2f}".format(loan_amount, loan_at_end), file=output_file)
 
 output_file.close()
